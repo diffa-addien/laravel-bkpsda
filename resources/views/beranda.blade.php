@@ -93,94 +93,93 @@
         </button>
     </section>
 
-    {{-- BERITA TERBARU SECTION (REVISED LAYOUT) --}}
+    @if($pengumumans->isNotEmpty())
+        <style>
+            /* Animasi untuk marquee */
+            @keyframes marquee {
+                0% {
+                    transform: translateX(100%);
+                }
+
+                100% {
+                    transform: translateX(-100%);
+                }
+            }
+
+            .animate-marquee {
+                animation: marquee 30s linear infinite;
+            }
+        </style>
+        <section class="bg-govRed py-3 text-white">
+            <div class="container mx-auto px-6 flex items-center">
+                <span class="font-bold text-lg mr-4 flex-shrink-0">PENGUMUMAN</span>
+                <div class="overflow-x-hidden flex-grow">
+                    <div class="whitespace-nowrap animate-marquee">
+                        @foreach($pengumumans as $pengumuman)
+                            <span class="mx-4">
+                                <i class="fa-solid fa-star-of-life text-xs mr-2 text-govAmber"></i>
+                                {{ $pengumuman }}
+                            </span>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
+
+    {{-- BERITA TERBARU SECTION (DINAMIS) --}}
     <section class="py-16 bg-gray-100">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-2 text-gray-800 text-center">Berita Terkini Kabupaten Halmahera Timur</h2>
+            <h2 class="text-3xl font-bold mb-2 text-gray-800 text-center">Berita Terkini</h2>
             <div class="h-1 w-20 bg-govRed mx-auto mb-10"></div>
 
+            @if($beritas->isNotEmpty())
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- KIRI: Berita Utama -->
-                <div
-                    class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1635961726947-0f821cf9ba28?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-                        alt="Berita Utama" class="w-full h-72 object-cover">
+                @php
+                    $beritaUtama = $beritas->first();
+                    $beritaLainnya = $beritas->skip(1);
+                @endphp
+
+                {{-- KIRI: Berita Utama --}}
+                <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden">
+                    <a href="{{ route('berita.show', $beritaUtama) }}">
+                        <img src="{{ $beritaUtama->getFirstMediaUrl('berita_images') ?: 'https://via.placeholder.com/800x600' }}" alt="{{ $beritaUtama->judul }}" class="w-full h-72 object-cover">
+                    </a>
                     <div class="p-6">
-                        <span class="text-gray-500 text-sm block mb-2"><i class="fa-regular fa-calendar-alt mr-1"></i>
-                            09 September 2025</span>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">BKD Kabupaten Halmahera Timur Adakan Sesi
-                            Berbagi Kebijakan BKN tentang Gelar ASN, Uji Kompetensi, dan Kenaikan Pangkat</h3>
+                        <span class="text-gray-500 text-sm block mb-2"><i class="fa-regular fa-calendar-alt mr-1"></i> {{ $beritaUtama->published_at->format('d F Y') }}</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">
+                            <a href="{{ route('berita.show', $beritaUtama) }}" class="hover:text-govRed">{{ $beritaUtama->judul }}</a>
+                        </h3>
                         <p class="text-gray-600 text-base mb-4 line-clamp-3">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.
+                            {{ Str::limit(strip_tags($beritaUtama->isi_berita), 200) }}
                         </p>
-                        <a href="#" class="text-govRed hover:underline font-semibold">Baca Selengkapnya <i
-                                class="fa-solid fa-arrow-right ml-2"></i></a>
+                        <a href="{{ route('berita.show', $beritaUtama) }}" class="text-govRed hover:underline font-semibold">Baca Selengkapnya <i class="fa-solid fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
 
-                <!-- KANAN: Daftar Berita Lainnya dengan Efek Layered Cards -->
+                {{-- KANAN: Daftar Berita Lainnya --}}
                 <div class="relative pl-6">
-                    <!-- Card Lapis Bawah (Dekoratif) -->
-                    <div
-                        class="absolute inset-0 bg-white rounded-lg shadow-md transform translate-x-3 translate-y-6 h-[calc(100%-2rem)] opacity-60">
-                    </div>
-
-                    <!-- Card Utama (Berita List) -->
+                    <div class="absolute inset-0 bg-white rounded-lg shadow-md transform translate-x-3 translate-y-3 opacity-60"></div>
                     <div class="relative bg-white rounded-lg shadow-lg p-6">
-                        <!-- Item Berita 1 -->
-                        <a href="#" class="flex items-start mb-6 group">
-                            <img src="https://images.unsplash.com/photo-1534483754970-1372c057639e?q=80&w=2070&auto=format&fit=crop"
-                                alt="Berita Kecil 1" class="w-24 h-16 object-cover rounded mr-4 flex-shrink-0">
+                        @foreach ($beritaLainnya as $berita)
+                        <a href="{{ route('berita.show', $berita) }}" class="flex items-start mb-6 group">
+                            <img src="{{ $berita->getFirstMediaUrl('berita_images') ?: 'https://via.placeholder.com/150' }}" alt="{{ $berita->judul }}" class="w-24 h-16 object-cover rounded mr-4 flex-shrink-0">
                             <div>
-                                <span
-                                    class="text-gray-500 text-xs block mb-1 group-hover:text-govRed transition-colors duration-200"><i
-                                        class="fa-regular fa-clock mr-1"></i> 27 Agustus 2025</span>
-                                <h4
-                                    class="text-base font-semibold text-gray-800 group-hover:text-govRed transition-colors duration-200">
-                                    Seleksi Kompetensi Kepala Bagian Umum Universitas Tidar di BKD Kabupaten Halmahera
-                                    Timur</h4>
+                                <span class="text-gray-500 text-xs block mb-1 group-hover:text-govRed transition-colors duration-200"><i class="fa-regular fa-clock mr-1"></i> {{ $berita->published_at->format('d M Y') }}</span>
+                                <h4 class="text-base font-semibold text-gray-800 group-hover:text-govRed transition-colors duration-200">{{ $berita->judul }}</h4>
                             </div>
                         </a>
-
-                        <!-- Item Berita 2 -->
-                        <a href="#" class="flex items-start mb-6 group">
-                            <img src="https://images.unsplash.com/photo-1544372957-2e21b777a8b3?q=80&w=2070&auto=format&fit=crop"
-                                alt="Berita Kecil 2" class="w-24 h-16 object-cover rounded mr-4 flex-shrink-0">
-                            <div>
-                                <span
-                                    class="text-gray-500 text-xs block mb-1 group-hover:text-govRed transition-colors duration-200"><i
-                                        class="fa-regular fa-clock mr-1"></i> 26 Agustus 2025</span>
-                                <h4
-                                    class="text-base font-semibold text-gray-800 group-hover:text-govRed transition-colors duration-200">
-                                    Dukung Survei Penilaian Integritas Kabupaten Halmahera Timur 2025</h4>
-                            </div>
-                        </a>
-
-                        <!-- Item Berita 3 -->
-                        <a href="#" class="flex items-start mb-6 group">
-                            <img src="https://images.unsplash.com/photo-1502086223501-7ee58882173e?q=80&w=2070&auto=format&fit=crop"
-                                alt="Berita Kecil 3" class="w-24 h-16 object-cover rounded mr-4 flex-shrink-0">
-                            <div>
-                                <span
-                                    class="text-gray-500 text-xs block mb-1 group-hover:text-govRed transition-colors duration-200"><i
-                                        class="fa-regular fa-clock mr-1"></i> 26 Agustus 2025</span>
-                                <h4
-                                    class="text-base font-semibold text-gray-800 group-hover:text-govRed transition-colors duration-200">
-                                    BKD Kabupaten Halmahera Timur Sosialisasikan Pengisian Survei Penilaian Integritas
-                                    (SPI) 2025</h4>
-                            </div>
-                        </a>
-
-                        <!-- Link Selengkapnya -->
+                        @endforeach
+                        
                         <div class="mt-4 text-right">
-                            <a href="#" class="text-govRed hover:underline font-semibold">Selengkapnya <i
-                                    class="fa-solid fa-arrow-right ml-2"></i></a>
+                            <a href="{{ route('berita.index') }}" class="text-govRed hover:underline font-semibold">Semua berita <i class="fa-solid fa-arrow-right ml-2"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
+            @else
+            <p class="text-center text-gray-500">Belum ada berita yang dipublikasikan.</p>
+            @endif
         </div>
     </section>
 
