@@ -7,16 +7,8 @@ use App\Http\Controllers\BeritaController; // <-- Tambahkan ini
 
 // Halaman Beranda
 Route::get('/', function () {
-    // Ambil data untuk marquee pengumuman
-    $pengumumans = Pengumuman::where('is_active', true)->latest()->pluck('judul');
-
-    // Ambil 4 berita terbaru yang sudah dipublikasikan untuk homepage
     $beritas = Berita::where('is_published', true)->latest('published_at')->take(4)->get();
-    
-    return view('beranda', [
-        'pengumumans' => $pengumumans,
-        'beritas' => $beritas, // Kirim data berita ke view
-    ]);
+    return view('beranda', ['beritas' => $beritas]);
 });
 
 // Halaman List dan Detail Berita
