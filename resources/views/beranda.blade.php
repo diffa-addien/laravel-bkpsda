@@ -42,42 +42,36 @@
         {{-- Main Content of Hero Section (Unchanged) --}}
         <div class="relative z-10 flex flex-col justify-end h-full container mx-auto px-6 py-10 text-white">
 
-            {{-- LAYANAN ICONS (Unchanged) --}}
+            {{-- LAYANAN ICONS (TEXT UPDATED) --}}
             <div class="w-full grid grid-cols-4 sm:grid-cols-4 md:grid-cols-7 gap-4 lg:gap-6">
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                {{-- Style: flex-col untuk menumpuk ikon dan teks secara vertikal --}}
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-building"></i></div>
                     <span class="text-white text-xs text-center font-medium">Sekretariat</span>
                 </div>
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-person-digging"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Mutasi & Promosi</span>
+                    <span class="text-white text-xs text-center font-medium">Bidang PPP</span>
                 </div>
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-book"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Diklat & Kompetensi</span>
+                    <span class="text-white text-xs text-center font-medium">Bidang Mutasi</span>
                 </div>
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-gear"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Data & Informasi</span>
+                    <span class="text-white text-xs text-center font-medium">Bidang PKP</span>
                 </div>
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-people-group"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Pengadaan Pegawai</span>
+                    <span class="text-white text-xs text-center font-medium">Bidang INKA</span>
                 </div>
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-laptop-code"></i></div>
-                    <span class="text-white text-xs text-center font-medium">e-Kinerja</span>
+                    <span class="text-white text-xs text-center font-medium">Upenkom</span>
                 </div>
-                <div
-                    class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
                     <div class="text-2xl text-white mb-2"><i class="fa-solid fa-chart-line"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Kesejahteraan</span>
+                    <span class="text-white text-xs text-center font-medium">PPID</span>
                 </div>
             </div>
         </div>
