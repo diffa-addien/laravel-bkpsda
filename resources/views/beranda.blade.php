@@ -1,13 +1,15 @@
 <x-app-layout>
 
     {{-- HERO SECTION (REVISED WITH PARALLAX) --}}
+    @php
+        // Menyiapkan array URL gambar untuk Alpine.js dari Spatie
+        $sliderImages = $sliders->map(function($slider) {
+            return $slider->getFirstMediaUrl('sliders');
+        });
+    @endphp
     <section class="relative h-screen overflow-hidden" x-data="{ 
              activeSlide: 0, 
-             slides: [
-                 'https://images.unsplash.com/photo-1755004609094-1d91b019aaa2?q=80&w=434&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Gambar contoh 1
-                 'https://images.unsplash.com/photo-1754597302822-4b96f3442d3f?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Gambar contoh 2
-                 'https://images.unsplash.com/photo-1533088734020-f5cd2d192134?q=80&w=2070&auto=format&fit=crop'  // Gambar contoh 3
-             ],
+             slides: {{ $sliderImages->toJson() }},
              parallaxOffset: 0, // State baru untuk parallax
              next() {
                  this.activeSlide = (this.activeSlide + 1) % this.slides.length;
