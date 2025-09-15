@@ -22,7 +22,8 @@
                 <a href="/" class="hover:text-govAmber">Beranda</a>
                 <a href="#" class="hover:text-govAmber">Profil</a>
                 <a href="{{ route('berita.index') }}" class="hover:text-govAmber">Berita</a>
-                <a href="#" class="hover:text-govAmber">Unduhan</a>
+                <a href="{{ route('galeri.index') }}" class="hover:text-govAmber">Galeri</a>
+                <a href="{{ route('dokumen.index') }}" class="hover:text-govAmber">Unduhan</a>
                 <a href="#" class="hover:text-govAmber">Kontak</a>
             </div>
 
