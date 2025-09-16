@@ -47,34 +47,48 @@
             {{-- LAYANAN ICONS (TEXT UPDATED) --}}
             <div class="w-full grid grid-cols-4 sm:grid-cols-4 md:grid-cols-7 gap-4 lg:gap-6">
                 {{-- Style: flex-col untuk menumpuk ikon dan teks secara vertikal --}}
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-building"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Sekretariat</span>
-                </div>
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-person-digging"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Bidang PPP</span>
-                </div>
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-book"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Bidang Mutasi</span>
-                </div>
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-gear"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Bidang PKP</span>
-                </div>
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-people-group"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Bidang INKA</span>
-                </div>
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-laptop-code"></i></div>
-                    <span class="text-white text-xs text-center font-medium">Upenkom</span>
-                </div>
-                <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
-                    <div class="text-2xl text-white mb-2"><i class="fa-solid fa-chart-line"></i></div>
-                    <span class="text-white text-xs text-center font-medium">PPID</span>
-                </div>
+                <a href="{{ route('bidang.show', 'sekretariat') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-building"></i></div>
+                        <span class="text-white text-xs text-center font-medium">Sekretariat</span>
+                    </div>
+                </a>
+                <a href="{{ route('bidang.show', 'bidang-ppp') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-person-digging"></i></div>
+                        <span class="text-white text-xs text-center font-medium">Bidang PPP</span>
+                    </div>
+                </a>
+                <a href="{{ route('bidang.show', 'bidang-mutasi') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-book"></i></div>
+                        <span class="text-white text-xs text-center font-medium">Bidang Mutasi</span>
+                    </div>
+                </a>
+                <a href="{{ route('bidang.show', 'bidang-pkp') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-gear"></i></div>
+                        <span class="text-white text-xs text-center font-medium">Bidang PKP</span>
+                    </div>
+                </a>
+                <a href="{{ route('bidang.show', 'bidang-inka') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-people-group"></i></div>
+                        <span class="text-white text-xs text-center font-medium">Bidang INKA</span>
+                    </div>
+                </a>
+                <a href="{{ route('bidang.show', 'upenkom') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-laptop-code"></i></div>
+                        <span class="text-white text-xs text-center font-medium">Upenkom</span>
+                    </div>
+                </a>
+                <a href="{{ route('bidang.show', 'ppid') }}" class="block">
+                    <div class="p-3 rounded-lg shadow-lg bg-black bg-opacity-25 backdrop-blur-sm flex flex-col items-center justify-center cursor-pointer hover:bg-opacity-40 transition-all duration-300 aspect-square">
+                        <div class="text-2xl text-white mb-2"><i class="fa-solid fa-chart-line"></i></div>
+                        <span class="text-white text-xs text-center font-medium">PPID</span>
+                    </div>
+                </a>
             </div>
         </div>
 

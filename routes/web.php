@@ -9,7 +9,7 @@ use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BidangController; // <-- Pastikan ini ada di atas
-
+use App\Http\Controllers\LamanBidangController; // <-- Pastikan ini ada di atas
 
 
 // Halaman Beranda
@@ -32,4 +32,5 @@ Route::get('/unduhan', [DokumenController::class, 'index'])->name('dokumen.index
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
 Route::get('/profil/{profil:slug}', [ProfilController::class, 'show'])->name('profil.show');
 Route::get('/bidang/{bidang:slug}', [BidangController::class, 'show'])->name('bidang.show');
+Route::get('/laman/{lamanBidang:slug}', [LamanBidangController::class, 'show'])->name('laman-bidang.show');
 
