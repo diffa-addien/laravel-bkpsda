@@ -83,8 +83,8 @@ class ProfilResource extends Resource
     {
         return [
             'index' => Pages\ListProfils::route('/'),
-            'create' => Pages\CreateProfil::route('/create'),
-            'edit' => Pages\EditProfil::route('/{record}/edit'),
+            // 'create' => Pages\CreateProfil::route('/create'),
+            // 'edit' => Pages\EditProfil::route('/{record}/edit'),
         ];
     }    
 }
