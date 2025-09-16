@@ -8,6 +8,7 @@ use App\Models\Slider;
 use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\BidangController; // <-- Pastikan ini ada di atas
 
 
 
@@ -30,4 +31,5 @@ Route::get('/unduhan', [DokumenController::class, 'index'])->name('dokumen.index
 
 Route::get('/galeri', [GaleriController::class, 'index'])->name('galeri.index');
 Route::get('/profil/{profil:slug}', [ProfilController::class, 'show'])->name('profil.show');
+Route::get('/bidang/{bidang:slug}', [BidangController::class, 'show'])->name('bidang.show');
 
